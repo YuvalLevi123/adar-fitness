@@ -23,7 +23,6 @@ Search `index.html` for `TODO` to find each one.
 
 | What | Where |
 |------|-------|
-| WhatsApp number | Find & replace `972500000000` (all buttons use it) |
 | Instagram link | Footer, `href="#"` next to the Instagram icon |
 | Numbers (10+, 20–70, ★ 5.0) | Stat tiles under the hero |
 | "מאמנת מוסמכת" | About section — keep only if true |
