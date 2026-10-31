@@ -417,9 +417,9 @@ h2.display {
   background:
     linear-gradient(
       270deg,
-      rgba(36, 20, 26, 0.8) 0%,
-      rgba(36, 20, 26, 0.45) 42%,
-      rgba(36, 20, 26, 0) 72%
+      rgba(36, 20, 26, 0.86) 0%,
+      rgba(36, 20, 26, 0.5) 48%,
+      rgba(36, 20, 26, 0) 78%
     ),
     linear-gradient(180deg, rgba(36, 20, 26, 0.35) 0%, rgba(36, 20, 26, 0) 22%);
 }
@@ -435,8 +435,26 @@ h2.display {
   font-size: clamp(44px, 6.4vw, 80px);
   margin-bottom: 18px;
 }
-.hero h1 em {
+.hero-brand {
+  display: block;
+  font-family: "Bebas Neue", var(--font-display);
+  font-weight: 400;
+  font-size: clamp(76px, 9vw, 128px);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  direction: ltr;
+  text-align: right;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+}
+.hero-brand em {
+  display: block;
   color: var(--brand-soft);
+}
+.hero-sub {
+  display: block;
+  font-size: clamp(23px, 2.4vw, 34px);
+  line-height: 1.2;
 }
 .hero-lead {
   font-size: clamp(17px, 1.6vw, 20px);
@@ -1232,9 +1250,9 @@ h2.display {
     background:
       linear-gradient(
         0deg,
-        rgba(36, 20, 26, 0.88) 0%,
-        rgba(36, 20, 26, 0.55) 38%,
-        rgba(36, 20, 26, 0) 66%
+        rgba(36, 20, 26, 0.92) 0%,
+        rgba(36, 20, 26, 0.6) 50%,
+        rgba(36, 20, 26, 0) 80%
       ),
       linear-gradient(180deg, rgba(36, 20, 26, 0.4) 0%, rgba(36, 20, 26, 0) 20%);
   }
