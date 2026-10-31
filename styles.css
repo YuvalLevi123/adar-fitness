@@ -1200,6 +1200,12 @@ h2.display {
 }
 
 @media (max-width: 640px) {
+  .hero-brand {
+    font-size: 60px;
+  }
+  .hero-sub {
+    font-size: 21px;
+  }
   .checks-photo {
     display: block;
     flex: none;
@@ -1260,8 +1266,14 @@ h2.display {
     inset-inline: 20px;
     bottom: 28px;
   }
+  .hero-actions {
+    gap: 10px;
+  }
   .hero-actions .btn {
     flex: 1 1 100%;
+    min-height: 50px;
+    padding: 12px 24px;
+    font-size: 17px;
   }
 
   .cards {
