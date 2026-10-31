@@ -23,7 +23,6 @@ Search `index.html` for `TODO` to find each one.
 
 | What | Where |
 |------|-------|
-| Instagram link | Footer, `href="#"` next to the Instagram icon |
 | "10 שנות ניסיון" | Highlights row under the hero |
 | "מאמנת מוסמכת" | About section — keep only if true |
 | Reviews | Reviews section — real quotes, names, how long they've trained |

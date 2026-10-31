@@ -183,14 +183,28 @@ h2.display { font-size: clamp(34px, 4.6vw, 52px); }
   min-height: 64px;
 }
 
-.logo-pill {
+.logo {
+  position: relative;
   display: inline-flex;
-  background: var(--white);
-  border-radius: 999px;
-  padding: 5px 16px;
   flex: none;
+  filter: drop-shadow(0 0 1px rgba(36, 20, 26, .7)) drop-shadow(0 2px 8px rgba(36, 20, 26, .5));
+  transition: filter .3s ease;
 }
-.logo-pill img { height: 50px; width: auto; }
+.logo img {
+  height: 72px;
+  width: auto;
+  opacity: 0;   /* over the photo the logo is painted light pink by ::before; the original shows once scrolled */
+  transition: opacity .3s ease, height .3s ease;
+}
+.logo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--brand-soft);
+  -webkit-mask: url("assets/logo.png") center / contain no-repeat;
+  mask: url("assets/logo.png") center / contain no-repeat;
+  transition: opacity .3s ease;
+}
 
 .main-nav {
   display: flex;
@@ -215,7 +229,6 @@ h2.display { font-size: clamp(34px, 4.6vw, 52px); }
   transition: transform .25s var(--ease-out);
 }
 .main-nav a:not(.btn):hover::after { transform: scaleX(1); }
-.nav-cta-mobile { display: none; }
 
 .header-actions { display: flex; align-items: center; gap: 10px; }
 
@@ -253,6 +266,9 @@ h2.display { font-size: clamp(34px, 4.6vw, 52px); }
   box-shadow: 0 1px 0 var(--line), 0 10px 30px -24px rgba(60, 20, 30, .35);
 }
 .site-header.is-scrolled .main-nav { color: var(--ink); }
+.site-header.is-scrolled .logo img { opacity: 1; height: 56px; }
+.site-header.is-scrolled .logo::before { opacity: 0; }
+.site-header.is-scrolled .logo { filter: none; }
 .site-header.is-scrolled .btn-white { background: var(--ink); color: var(--white); }
 .site-header.is-scrolled .btn-white .wa-green { color: var(--white); }
 .site-header.is-scrolled .btn-white:hover { background: var(--brand-strong); }
@@ -745,12 +761,13 @@ h2.display { font-size: clamp(34px, 4.6vw, 52px); }
     transition: opacity .25s ease, transform .25s var(--ease-out), visibility 0s;
   }
   .main-nav a:not(.btn) { padding: 14px 4px; border-bottom: 1px solid var(--line); }
+  .main-nav a:last-child { border-bottom: 0; }
   .main-nav a:not(.btn)::after { display: none; }
-  .nav-cta-mobile { display: inline-flex; margin-top: 16px; }
   .site-header.is-scrolled .main-nav { color: var(--ink); }
   .header-actions .btn-white { display: none; }
   .menu-toggle { display: inline-flex; }
-  .logo-pill img { height: 40px; }
+  .logo img { height: 56px; }
+  .site-header.is-scrolled .logo img { height: 44px; }
 
   .highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 20px; }
 
@@ -782,8 +799,12 @@ h2.display { font-size: clamp(34px, 4.6vw, 52px); }
 }
 
 @media (max-width: 640px) {
-  .highlight { flex-direction: column; gap: 10px; }
-  .highlight-icon { width: 48px; height: 48px; }
+  .highlights { gap: 22px 14px; }
+  .highlight { gap: 10px; }
+  .highlight-icon { width: 40px; height: 40px; }
+  .highlight-icon .i-stroke { width: 21px; height: 21px; }
+  .highlight-title { font-size: 16px; margin-top: 0; }
+  .highlight p:not(.highlight-title) { font-size: 14px; }
   .hero { height: clamp(560px, 88svh, 720px); }
   .hero-img { object-position: 52% 50%; }
   .hero::after {
