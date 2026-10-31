@@ -5,10 +5,10 @@
 :root {
   /* Brand — from the logo coral and the studio's raspberry towels */
   --brand: #ff6464; /* logo color: backgrounds, decorative accents */
-  --brand-strong: #f05454; /* buttons + display highlights (large white/dark text passes AA-large) */
+  --brand-strong: #f86f6f; /* buttons + display highlights (large white/dark text passes AA-large) */
   --brand-hover: #e04848;
   --brand-ink: #c2304f; /* small accent text on light surfaces (≥4.5:1) */
-  --brand-soft: #ff8a8a; /* highlights on dark/photo backgrounds */
+  --brand-soft: #f86f6f; /* highlights on dark/photo backgrounds */
   --rasp: #c93a60; /* raspberry surfaces carrying white body text */
 
   --blush: #fdeceb;
