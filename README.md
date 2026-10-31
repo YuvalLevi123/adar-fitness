@@ -29,12 +29,12 @@ Search `index.html` for `TODO` to find each one.
 | "מאמנת מוסמכת" | About section — keep only if true |
 | Reviews | Reviews section — real quotes, names, how long they've trained |
 | FAQ answers + studio address | FAQ section |
-| Share image URL | `og:image` in `<head>` — set the full URL once the site is live |
 
 The WhatsApp message text is URL-encoded inside each link. To change it, encode the new text (e.g. with `encodeURIComponent` in a browser console) and replace the `?text=...` part.
 
-## Publish with GitHub Pages
+## Hosting
 
-1. Push this folder's contents to a GitHub repository (the page must be at the repo root as `index.html`).
-2. Repository **Settings → Pages → Build and deployment**: Source = *Deploy from a branch*, Branch = `main`, folder = `/ (root)`.
-3. After a minute the site is live at `https://<your-username>.github.io/<repo-name>/`.
+Live at **https://adarfitness.github.io** — GitHub Pages, served from the `main` branch of
+the `adarfitness/adarfitness.github.io` repository. Every push to `main` republishes the site within a minute or two.
+
+If the address ever changes (e.g. a custom domain), update `canonical`, `og:url` and `og:image` in `<head>`.
