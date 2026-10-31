@@ -24,10 +24,10 @@ Search `index.html` for `TODO` to find each one.
 | What | Where |
 |------|-------|
 | Instagram link | Footer, `href="#"` next to the Instagram icon |
-| Numbers (10+, 20–70, ★ 5.0) | Stat tiles under the hero |
+| "10 שנות ניסיון" | Highlights row under the hero |
 | "מאמנת מוסמכת" | About section — keep only if true |
 | Reviews | Reviews section — real quotes, names, how long they've trained |
-| FAQ answers + studio address | FAQ section |
+| FAQ answers | FAQ section |
 
 The WhatsApp message text is URL-encoded inside each link. To change it, encode the new text (e.g. with `encodeURIComponent` in a browser console) and replace the `?text=...` part.
 
