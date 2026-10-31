@@ -53,25 +53,34 @@
   var items = document.querySelectorAll('.reveal');
   root.classList.add('reveal-ready');
 
+  function reveal(el) {
+    var siblings = Array.prototype.filter.call(el.parentNode.children, function (c) {
+      return c.classList.contains('reveal');
+    });
+    el.style.setProperty('--reveal-delay', Math.max(0, siblings.indexOf(el)) * 80 + 'ms');
+    el.classList.add('is-visible');
+    // Hand transitions back to the element's own styles (e.g. card hover) once revealed
+    el.addEventListener('transitionend', function done(ev) {
+      if (ev.target !== el || ev.propertyName !== 'transform') return;
+      el.removeEventListener('transitionend', done);
+      el.classList.remove('reveal', 'is-visible');
+      el.style.removeProperty('--reveal-delay');
+    });
+  }
+
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (!entry.isIntersecting) return;
-      var el = entry.target;
-      var siblings = Array.prototype.filter.call(el.parentNode.children, function (c) {
-        return c.classList.contains('reveal');
-      });
-      el.style.setProperty('--reveal-delay', Math.max(0, siblings.indexOf(el)) * 80 + 'ms');
-      el.classList.add('is-visible');
-      io.unobserve(el);
-      // Hand transitions back to the element's own styles (e.g. card hover) once revealed
-      el.addEventListener('transitionend', function done(ev) {
-        if (ev.target !== el || ev.propertyName !== 'transform') return;
-        el.removeEventListener('transitionend', done);
-        el.classList.remove('reveal', 'is-visible');
-        el.style.removeProperty('--reveal-delay');
-      });
+      io.unobserve(entry.target);
+      reveal(entry.target);
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-  items.forEach(function (el) { io.observe(el); });
+  // Anything already peeking into the screen on load shows right away,
+  // so tall phones don't see an empty strip under the hero
+  var vh = window.innerHeight;
+  items.forEach(function (el) {
+    if (el.getBoundingClientRect().top < vh) reveal(el);
+    else io.observe(el);
+  });
 })();

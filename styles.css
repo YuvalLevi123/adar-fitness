@@ -1247,7 +1247,10 @@ h2.display {
     font-size: 14px;
   }
   .hero {
-    height: clamp(560px, 88svh, 720px);
+    /* fill the whole phone screen, so nothing peeks in below it on load */
+    height: 100vh;
+    height: 100svh;
+    min-height: 560px;
   }
   .hero-img {
     object-position: 52% 50%;
